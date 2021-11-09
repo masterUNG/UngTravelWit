@@ -5,6 +5,7 @@ import 'package:file_utils/file_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:omise_flutter/omise_flutter.dart';
+import 'package:permission_handler/permission_handler.dart';
 // import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:ungtravel/models/omese_model.dart';
 import 'package:ungtravel/utility/my_constant.dart';
@@ -44,11 +45,26 @@ class _OmesePaymentState extends State<OmesePayment> {
           buildStream(),
           omeseButton(),
           saveTextButton(),
+          buildDownloadImage(),
           TextFormField(),
         ],
       ),
     );
   }
+
+  ElevatedButton buildDownloadImage() => ElevatedButton(
+        onPressed: () async {
+          await Permission.photos.status.then((value) async {
+            print('## value11 permission ==> $value');
+            if (value.isDenied) {
+              await Permission.photos.request().then((value) {
+                print('## value22 permission ==> $value');
+              });
+            }
+          });
+        },
+        child: const Text('Download Image'),
+      );
 
   Container buildStream() => Container(
         child: StreamBuilder<Object>(
@@ -66,7 +82,7 @@ class _OmesePaymentState extends State<OmesePayment> {
       onPressed: () {
         Clipboard.setData(
             ClipboardData(text: 'https://promptpay.io/0818595309.png'));
-        processDownload();
+        // processDownload();
       },
       child: const Text('Save Text'),
     );

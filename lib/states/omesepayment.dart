@@ -104,18 +104,13 @@ class _OmesePaymentState extends State<OmesePayment> {
   }
 
   Future<void> findTokenAnCharge() async {
+
     Map<String, dynamic> data = {
       "expiration_month": 2,
       "expiration_year": 2024,
       "name": "Somchai Prasert",
       "number": "4111111111111111",
       "security_code": 123,
-      "street1": "476 Fifth Avenue",
-      "city": "New York",
-      "state": "NY",
-      "postal_code": "10320",
-      "country": "US",
-      // "price":"123"
     };
 
     var codec = latin1.fuse(base64);

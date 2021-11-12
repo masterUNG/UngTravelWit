@@ -51,9 +51,9 @@ class OmeseModel {
         data['security_code'],
       )
           .then((value) async {
-        print('## value from omiseFlutter = ${value.toJson()}');
+        print('### value from omiseFlutter = ${value.toJson()}');
         token = value.id;
-        print('## token = $token');
+        print('### token = $token');
 
         String secretKey = 'skey_test_5pj6xiqsml00cgz0ze2';
         String basicAuth =
@@ -77,8 +77,8 @@ class OmeseModel {
         );
 
         var resultCharge = json.decode(response.body);
-        print('resultCharge = $resultCharge');
-        print('## status ของการตัดบัตร ==> ${resultCharge['status']}');
+        print('#### resultCharge = $resultCharge');
+        print('#### status ของการตัดบัตร ==> ${resultCharge['status']}');
       });
 
       // String urlStr = 'https://vault.omise.co/tokens';

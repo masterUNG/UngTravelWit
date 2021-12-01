@@ -8,6 +8,8 @@ class MyConstant {
   static String routeAddTravel = '/addTravel';
   static String routePromPayment = '/promPayment';
   static String routeOmesepayment = '/omesePayment';
+  static String routeTestWidget = '/testWidget';
+  static String rountShowData = '/showData';
 
   static String appName = 'Ung Travel';
   static String urlPrompay = 'https://promptpay.io/0818595309.png';
@@ -16,6 +18,7 @@ class MyConstant {
 
   static String domain =
       'https://13da-2405-9800-bc01-e26f-70d7-828b-6a4d-fbe0.ngrok.io';
+  static String apiData = 'https://play.intouchcompany.com/MobileService/workplaceApi/GetMainIcon?isIntra=true';
 
   // method
   TextStyle h1Style() => TextStyle(
